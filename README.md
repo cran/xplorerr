@@ -6,18 +6,18 @@
 > Tools for interactive data
 analysis
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/xplorerr)](https://cran.r-project.org/package=xplorerr)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/xplorerr)](https://cran.r-project.org/package=xplorerr)
 [![Travis-CI Build
 Status](https://travis-ci.org/rsquaredacademy/xplorerr.svg?branch=master)](https://travis-ci.org/rsquaredacademy/xplorerr)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/rsquaredacademy/xplorerr?branch=master&svg=true)](https://ci.appveyor.com/project/rsquaredacademy/xplorerr)
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
 ## Overview
 
 xplorerr provides a set of tools for interactive data analysis:
 
-  - Descirptive statistics
+  - Descriptive statistics
   - Visualize probability distributions
   - Inferential statistics
   - Linear regression
@@ -32,6 +32,9 @@ xplorerr provides a set of tools for interactive data analysis:
 ## Installation
 
 ``` r
+# Install release version from CRAN
+install.packages("xplorerr")
+
 # Install development version from GitHub
 # install.packages("devtools")
 devtools::install_github("rsquaredacademy/xplorerr")

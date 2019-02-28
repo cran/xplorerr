@@ -1,5 +1,17 @@
+#' @importFrom magrittr %>% extract
 .onAttach <- function(...) {
   if (!interactive() || stats::runif(1) > 0.1) return()
+
+  pkgs <- utils::available.packages()
+
+  cran_version <-
+    pkgs %>%
+    extract("xplorerr", "Version") %>%
+    package_version()
+
+  local_version <- utils::packageVersion("xplorerr")
+  behind_cran <- cran_version > local_version
+
 
   tips <- c(
     "Learn more about xplorerr at https://github.com/rsquaredacademy/xplorerr/.",
@@ -9,5 +21,17 @@
   )
 
   tip <- sample(tips, 1)
-  packageStartupMessage(paste(strwrap(tip), collapse = "\n"))
+
+  if (interactive()) {
+    if (behind_cran) {
+      msg <- c("A new version of xplorerr is available with bug fixes and new features.")
+      packageStartupMessage(msg, "\nWould you like to install it?")
+      if (utils::menu(c("Yes", "No")) == 1) {
+        utils::update.packages("xplorerr")
+      }
+    } else {
+      packageStartupMessage(paste(strwrap(tip), collapse = "\n"))
+    }
+  }
+
 }
